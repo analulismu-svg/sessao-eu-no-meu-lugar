@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sessão Eu no Meu Lugar — Analu Figueira</title>
+  <meta name="description" content="Uma sessão individual para identificar seu padrão de autossabotagem profissional e sair do automático de vez." />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0c0b0f;
+      --bg2: #13111a;
+      --bg3: #1a1724;
+      --accent: #c4a0c8;
+      --accent2: #9b6ea8;
+      --warm: #e8b89a;
+      --text: #f0eaf4;
+      --muted: #9b96a8;
+      --border: #2a2535;
+      --cta: #c4a0c8;
+      --cta-hover: #d4b4d8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section { padding: 64px 0; }
+    section + section { border-top: 1px solid var(--border); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(180deg, #1a1330 0%, var(--bg) 100%);
+      padding: 72px 0 64px;
+      text-align: center;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent2);
+      border-radius: 100px;
+      padding: 5px 16px;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 8vw, 56px);
+      line-height: 1.15;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero .sub {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--cta);
+      color: #0c0b0f;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 16px 36px;
+      border-radius: 100px;
+      text-decoration: none;
+      letter-spacing: 0.3px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn:hover {
+      background: var(--cta-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--cta);
+      border: 1.5px solid var(--cta);
+    }
+
+    .btn-outline:hover {
+      background: rgba(196,160,200,0.08);
+      transform: translateY(-1px);
+    }
+
+    .hero-note {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 14px;
+    }
+
+    /* ── DOR ── */
+    .dor h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(26px, 5vw, 36px);
+      line-height: 1.25;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+
+    .dor p {
+      color: var(--muted);
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+
+    .dor p strong {
+      color: var(--text);
+    }
+
+    .dor .destaque {
+      background: var(--bg3);
+      border-left: 3px solid var(--accent2);
+      border-radius: 0 8px 8px 0;
+      padding: 20px 24px;
+      margin: 28px 0;
+      font-size: 17px;
+      color: var(--text);
+      font-style: italic;
+    }
+
+    /* ── PARA QUEM ── */
+    .para-quem h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(24px, 5vw, 34px);
+      color: #fff;
+      margin-bottom: 28px;
+    }
+
+    .check-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 16px;
+      color: var(--text);
+    }
+
+    .check-list li::before {
+      content: '✦';
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-size: 13px;
+    }
+
+    /* ── O QUE É ── */
+    .oque h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(24px, 5vw, 34px);
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .oque .intro {
+      color: var(--muted);
+      font-size: 16px;
+      margin-bottom: 32px;
+    }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .step {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 22px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--accent2), #7a4fa0);
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .step-body strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .step-body span {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── ENTREGA ── */
+    .entrega h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(24px, 5vw, 34px);
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .entrega .intro {
+      color: var(--muted);
+      font-size: 16px;
+      margin-bottom: 32px;
+    }
+
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 22px;
+    }
+
+    .card-icon {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .card strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .card span {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* ── FORMATO ── */
+    .formato h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(24px, 5vw, 34px);
+      color: #fff;
+      margin-bottom: 28px;
+    }
+
+    .formato-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .formato-item {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .formato-item .fi-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .formato-item .fi-val {
+      font-size: 15px;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* ── SOBRE ── */
+    .sobre {
+      background: var(--bg2);
+    }
+
+    .sobre h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(24px, 5vw, 34px);
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .sobre .sub-sobre {
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+
+    .sobre p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 14px;
+    }
+
+    .sobre p strong {
+      color: var(--text);
+    }
+
+    /* ── PREÇO ── */
+    .preco {
+      text-align: center;
+    }
+
+    .preco h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(24px, 5vw, 34px);
+      color: #fff;
+      margin-bottom: 32px;
+    }
+
+    .preco-box {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 32px;
+      max-width: 420px;
+      margin: 0 auto 32px;
+    }
+
+    .preco-label {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .preco-valor {
+      font-family: 'DM Serif Display', serif;
+      font-size: 52px;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .preco-valor span {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .preco-pix {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .preco-includes {
+      list-style: none;
+      text-align: left;
+      margin: 0 0 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .preco-includes li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .preco-includes li::before {
+      content: '✓';
+      width: 20px;
+      height: 20px;
+      background: rgba(196,160,200,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 11px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .vagas-aviso {
+      font-size: 13px;
+      color: var(--warm);
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    /* ── FAQ ── */
+    .faq h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(24px, 5vw, 34px);
+      color: #fff;
+      margin-bottom: 32px;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    details {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    details + details { margin-top: 8px; }
+
+    summary {
+      padding: 18px 20px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 15px;
+      color: var(--text);
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      content: '+';
+      font-size: 20px;
+      color: var(--accent);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+
+    details[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    details p {
+      padding: 0 20px 18px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── CTA FINAL ── */
+    .cta-final {
+      text-align: center;
+      background: linear-gradient(180deg, var(--bg) 0%, #1a1330 100%);
+      padding: 80px 0;
+    }
+
+    .cta-final h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(28px, 6vw, 44px);
+      color: #fff;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .cta-final h2 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .cta-final p {
+      color: var(--muted);
+      font-size: 16px;
+      margin-bottom: 36px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 28px 24px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 440px) {
+      .formato-grid { grid-template-columns: 1fr; }
+      .preco-box { padding: 32px 24px; }
+      .preco-valor { font-size: 44px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <span class="tag">Sessão Individual</span>
+      <h1>Eu no <em>Meu Lugar</em></h1>
+      <p class="sub">Uma sessão para identificar o padrão que está te travando — de onde ele veio, o que ainda tenta proteger, e o que está custando na sua carreira.</p>
+      <a href="#checkout" class="btn">Quero minha sessão</a>
+      <p class="hero-note">1h30 · Online · Exclusivamente individual</p>
+    </div>
+  </section>
+
+  <!-- DOR -->
+  <section class="dor">
+    <div class="container">
+      <h2>Você faz. Você entrega. E ainda assim algo trava.</h2>
+
+      <p>Em algum momento da semana você reage de um jeito que não queria. Evita uma conversa que precisava ter. Aceita mais do que devia. Ou fica em loop tentando decidir algo que, na teoria, deveria ser simples.</p>
+
+      <p>Você já leu sobre isso. Já tentou mudar. Mas <strong>o padrão continua aparecendo.</strong></p>
+
+      <div class="destaque">
+        "Não é falta de vontade. É que o jeito que você aprendeu a trabalhar ainda está tentando proteger algo — e ele não sabe que o perigo já passou."
+      </div>
+
+      <p>A sessão <strong>Eu no Meu Lugar</strong> existe para identificar esse padrão com precisão — e traçar o caminho de saída que é real pra você, não genérico.</p>
+    </div>
+  </section>
+
+  <!-- PARA QUEM -->
+  <section class="para-quem">
+    <div class="container">
+      <h2>Essa sessão é pra você se…</h2>
+      <ul class="check-list">
+        <li>Você sente que trabalha muito mas não avança do jeito que quer</li>
+        <li>Você assume tudo sozinha e não consegue delegar sem culpa</li>
+        <li>Você precisa de validação pra tomar decisão — mesmo as que você domina</li>
+        <li>Você evita conflito e depois se ressente da situação</li>
+        <li>Você está sempre na iminência de fazer a mudança, mas algo sempre freia</li>
+        <li>Você quer entender o seu jeito de funcionar — não uma fórmula genérica</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- O QUE ACONTECE NA SESSÃO -->
+  <section class="oque">
+    <div class="container">
+      <h2>O que acontece na sessão</h2>
+      <p class="intro">A sessão segue 5 movimentos em sequência. Não é conversa de desabafo — é leitura precisa do seu padrão.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <strong>Padrão</strong>
+            <span>Identificamos seu perfil comportamental predominante — Executora, Comunicadora, Planejadora ou Detalhista — e como ele aparece no seu trabalho hoje.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <strong>Origem</strong>
+            <span>Conectamos esse padrão com a exigência específica que você aprendeu a atender. Não é fórmula por perfil — é leitura da sua história.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <strong>Proteção</strong>
+            <span>Nomeamos o que esse comportamento ainda tenta garantir hoje: segurança, pertencimento, valor, controle. O padrão não é seu inimigo — ele só está travado no passado.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <strong>Custo</strong>
+            <span>Tornamos concreto o que esse padrão está custando na sua carreira agora — em dinheiro, visibilidade, posição ou crescimento.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <strong>Virada</strong>
+            <span>Construímos novos movimentos. Você sai com clareza sobre onde agir primeiro — não uma lista de tarefas, mas uma direção que faz sentido pra você.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENTREGA -->
+  <section class="entrega">
+    <div class="container">
+      <h2>O que você recebe</h2>
+      <p class="intro">Além da sessão ao vivo, você recebe tudo por escrito.</p>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">🎯</div>
+          <strong>Raio-X de Identidade</strong>
+          <span>Documento personalizado com seu perfil predominante, sua força real, a sombra ativa e o seu próximo nível — por escrito, pra você revisitar sempre que precisar.</span>
+        </div>
+        <div class="card">
+          <div class="card-icon">📋</div>
+          <strong>Plano de 30 dias</strong>
+          <span>Ações concretas pensadas para o seu padrão específico — não uma lista genérica, mas movimentos que fazem sentido para o jeito que você funciona.</span>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔍</div>
+          <strong>Diagnóstico do seu perfil</strong>
+          <span>Mapeamento completo do seu comportamento com base na ferramenta CIS/DISC aplicada à sua realidade profissional.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMATO -->
+  <section class="formato">
+    <div class="container">
+      <h2>Como funciona</h2>
+      <div class="formato-grid">
+        <div class="formato-item">
+          <div class="fi-label">Duração</div>
+          <div class="fi-val">1h30</div>
+        </div>
+        <div class="formato-item">
+          <div class="fi-label">Formato</div>
+          <div class="fi-val">Online</div>
+        </div>
+        <div class="formato-item">
+          <div class="fi-label">Atendimento</div>
+          <div class="fi-val">Individual</div>
+        </div>
+        <div class="formato-item">
+          <div class="fi-label">Vagas</div>
+          <div class="fi-val">Limitadas</div>
+        </div>
+      </div>
+      <ul class="check-list">
+        <li>Após a compra, você recebe um documento para preencher com sua história, contexto atual e desafio principal</li>
+        <li>A sessão começa já com base no que você trouxe — sem perder tempo com apresentações genéricas</li>
+        <li>O Raio-X de Identidade e o Plano de 30 dias são enviados em até 48h após a sessão</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="sobre">
+    <div class="container">
+      <h2>Analu Figueira</h2>
+      <p class="sub-sobre">Coach e consultora comportamental</p>
+      <p>Trabalho com mulheres profissionais — CLT e CNPJ — que fazem demais e ainda sentem que não são suficientes.</p>
+      <p>Não sou a guru que chegou lá. Sou a mulher que está no caminho, com ferramentas que funcionam. Fiquei 10 anos sem tirar férias por medo de ser substituída. Trabalhava como forma de provar que eu valia. Só entendi o padrão quando parei de tentar consertá-lo e comecei a entender <strong>o que ele ainda estava tentando proteger.</strong></p>
+      <p>A segurança não veio antes. Ela veio depois.</p>
+    </div>
+  </section>
+
+  <!-- PREÇO E CHECKOUT -->
+  <section class="preco" id="checkout">
+    <div class="container">
+      <h2>Invista na sessão</h2>
+      <div class="preco-box">
+        <p class="preco-label">Sessão individual</p>
+        <p class="preco-valor"><span>R$</span> 597</p>
+        <p class="preco-pix">Pix ou cartão de crédito</p>
+        <ul class="preco-includes">
+          <li>Sessão individual de 1h30 ao vivo</li>
+          <li>Diagnóstico completo do seu perfil</li>
+          <li>Raio-X de Identidade por escrito</li>
+          <li>Plano de 30 dias personalizado</li>
+          <li>Documento de preparação prévia</li>
+        </ul>
+        <a href="#" class="btn" style="width:100%;text-align:center;display:block;">
+          Quero minha sessão — R$597
+        </a>
+        <p class="vagas-aviso">⚡ Vagas limitadas por mês</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <h2>Perguntas frequentes</h2>
+      <div class="faq-list">
+
+        <details>
+          <summary>Preciso ter comprado algum produto antes?</summary>
+          <p>Não. A sessão é completa e independente. Você não precisa ter nenhum app ou material anterior — o diagnóstico e o mapeamento do perfil fazem parte da própria sessão.</p>
+        </details>
+
+        <details>
+          <summary>Como funciona depois que eu compro?</summary>
+          <p>Você recebe um documento de preparação para preencher com sua história, seu contexto profissional atual e o desafio que mais está te travando. Depois agendamos a sessão para um horário que funcione pra você.</p>
+        </details>
+
+        <details>
+          <summary>A sessão é gravada?</summary>
+          <p>Você pode solicitar a gravação antes da sessão. Mas o material mais importante — o Raio-X de Identidade e o plano de 30 dias — chega por escrito em até 48h depois.</p>
+        </details>
+
+        <details>
+          <summary>Qual é o prazo para agendar após a compra?</summary>
+          <p>As sessões são agendadas conforme disponibilidade. Em geral, o prazo é de até 15 dias úteis. Você receberá as instruções de agendamento logo após a confirmação do pagamento.</p>
+        </details>
+
+        <details>
+          <summary>Funciona pra quem está em emprego CLT ou pra quem tem negócio próprio?</summary>
+          <p>Para as duas situações. O trabalho é sobre o seu padrão comportamental — e esse padrão aparece independente do formato de trabalho. Já atendi mulheres nas duas situações, e os movimentos de saída são específicos para a realidade de cada uma.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <div class="container">
+      <h2>Você não precisa<br>continuar no <em>automático.</em></h2>
+      <p>Uma sessão. Clareza real. Um caminho que é seu.</p>
+      <a href="#checkout" class="btn">Quero minha sessão</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Analu Figueira · <a href="https://instagram.com/analulismu" target="_blank">@analulismu</a></p>
+  </footer>
+
+</body>
+</html>
