@@ -328,6 +328,28 @@
       background: var(--bg2);
     }
 
+    .sobre-inner {
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+    }
+
+    .sobre-foto {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 2px solid var(--accent2);
+    }
+
+    .sobre-texto h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(24px, 5vw, 34px);
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
     .sobre h2 {
       font-family: 'DM Serif Display', serif;
       font-size: clamp(24px, 5vw, 34px);
@@ -350,6 +372,11 @@
 
     .sobre p strong {
       color: var(--text);
+    }
+
+    @media (max-width: 500px) {
+      .sobre-inner { flex-direction: column; align-items: center; text-align: center; }
+      .sobre-foto { width: 100px; height: 100px; }
     }
 
     /* ── PREÇO ── */
@@ -556,7 +583,7 @@
     <div class="container">
       <span class="tag">Sessão Individual</span>
       <h1>Eu no <em>Meu Lugar</em></h1>
-      <p class="sub">Uma sessão para identificar o padrão que está te travando — de onde ele veio, o que ainda tenta proteger, e o que está custando na sua carreira.</p>
+      <p class="sub">Uma sessão para identificar o padrão que está te travando: de onde ele veio, o que ainda tenta proteger e o que está custando na sua carreira.</p>
       <a href="#checkout" class="btn">Quero minha sessão</a>
       <p class="hero-note">1h30 · Online · Exclusivamente individual</p>
     </div>
@@ -572,10 +599,10 @@
       <p>Você já leu sobre isso. Já tentou mudar. Mas <strong>o padrão continua aparecendo.</strong></p>
 
       <div class="destaque">
-        "Não é falta de vontade. É que o jeito que você aprendeu a trabalhar ainda está tentando proteger algo — e ele não sabe que o perigo já passou."
+        "Não é falta de vontade. É que o jeito que você aprendeu a trabalhar ainda está tentando proteger algo. Ele não sabe que o perigo já passou."
       </div>
 
-      <p>A sessão <strong>Eu no Meu Lugar</strong> existe para identificar esse padrão com precisão — e traçar o caminho de saída que é real pra você, não genérico.</p>
+      <p>A sessão <strong>Eu no Meu Lugar</strong> existe para identificar esse padrão com precisão e traçar o caminho de saída que é real pra você, não genérico.</p>
     </div>
   </section>
 
@@ -586,10 +613,10 @@
       <ul class="check-list">
         <li>Você sente que trabalha muito mas não avança do jeito que quer</li>
         <li>Você assume tudo sozinha e não consegue delegar sem culpa</li>
-        <li>Você precisa de validação pra tomar decisão — mesmo as que você domina</li>
+        <li>Você precisa de validação pra tomar decisão, mesmo as que você domina</li>
         <li>Você evita conflito e depois se ressente da situação</li>
         <li>Você está sempre na iminência de fazer a mudança, mas algo sempre freia</li>
-        <li>Você quer entender o seu jeito de funcionar — não uma fórmula genérica</li>
+        <li>Você quer entender o seu jeito de funcionar, não uma fórmula genérica</li>
       </ul>
     </div>
   </section>
@@ -598,41 +625,41 @@
   <section class="oque">
     <div class="container">
       <h2>O que acontece na sessão</h2>
-      <p class="intro">A sessão segue 5 movimentos em sequência. Não é conversa de desabafo — é leitura precisa do seu padrão.</p>
+      <p class="intro">A sessão segue 5 movimentos em sequência. Não é conversa de desabafo: é leitura precisa do seu padrão.</p>
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
           <div class="step-body">
             <strong>Padrão</strong>
-            <span>Identificamos seu perfil comportamental predominante — Executora, Comunicadora, Planejadora ou Detalhista — e como ele aparece no seu trabalho hoje.</span>
+            <span>Identificamos seu perfil comportamental predominante (Executora, Comunicadora, Planejadora ou Detalhista) e como ele aparece no seu trabalho hoje.</span>
           </div>
         </div>
         <div class="step">
           <div class="step-num">2</div>
           <div class="step-body">
             <strong>Origem</strong>
-            <span>Conectamos esse padrão com a exigência específica que você aprendeu a atender. Não é fórmula por perfil — é leitura da sua história.</span>
+            <span>Conectamos esse padrão com a exigência específica que você aprendeu a atender. Não é fórmula por perfil: é leitura da sua história.</span>
           </div>
         </div>
         <div class="step">
           <div class="step-num">3</div>
           <div class="step-body">
             <strong>Proteção</strong>
-            <span>Nomeamos o que esse comportamento ainda tenta garantir hoje: segurança, pertencimento, valor, controle. O padrão não é seu inimigo — ele só está travado no passado.</span>
+            <span>Nomeamos o que esse comportamento ainda tenta garantir hoje: segurança, pertencimento, valor, controle. O padrão não é seu inimigo. Ele só está travado no passado.</span>
           </div>
         </div>
         <div class="step">
           <div class="step-num">4</div>
           <div class="step-body">
             <strong>Custo</strong>
-            <span>Tornamos concreto o que esse padrão está custando na sua carreira agora — em dinheiro, visibilidade, posição ou crescimento.</span>
+            <span>Tornamos concreto o que esse padrão está custando na sua carreira agora: dinheiro, visibilidade, posição ou crescimento.</span>
           </div>
         </div>
         <div class="step">
           <div class="step-num">5</div>
           <div class="step-body">
             <strong>Virada</strong>
-            <span>Construímos novos movimentos. Você sai com clareza sobre onde agir primeiro — não uma lista de tarefas, mas uma direção que faz sentido pra você.</span>
+            <span>Construímos novos movimentos. Você sai com clareza sobre onde agir primeiro: não uma lista de tarefas, mas uma direção que faz sentido pra você.</span>
           </div>
         </div>
       </div>
@@ -648,7 +675,7 @@
         <div class="card">
           <div class="card-icon">🎯</div>
           <strong>Raio-X de Identidade</strong>
-          <span>Documento personalizado com seu perfil predominante, sua força real, a sombra ativa e o seu próximo nível — por escrito, pra você revisitar sempre que precisar.</span>
+          <span>Documento personalizado com seu perfil predominante, sua força real, a sombra ativa e o seu próximo nível, por escrito, pra você revisitar sempre que precisar.</span>
         </div>
         <div class="card">
           <div class="card-icon">📋</div>
@@ -688,7 +715,7 @@
       </div>
       <ul class="check-list">
         <li>Após a compra, você recebe um documento para preencher com sua história, contexto atual e desafio principal</li>
-        <li>A sessão começa já com base no que você trouxe — sem perder tempo com apresentações genéricas</li>
+        <li>A sessão começa já com base no que você trouxe, sem perder tempo com apresentações genéricas</li>
         <li>O Raio-X de Identidade e o Plano de 30 dias são enviados em até 48h após a sessão</li>
       </ul>
     </div>
@@ -697,11 +724,16 @@
   <!-- SOBRE -->
   <section class="sobre">
     <div class="container">
-      <h2>Analu Figueira</h2>
-      <p class="sub-sobre">Coach e consultora comportamental</p>
-      <p>Trabalho com mulheres profissionais — CLT e CNPJ — que fazem demais e ainda sentem que não são suficientes.</p>
-      <p>Não sou a guru que chegou lá. Sou a mulher que está no caminho, com ferramentas que funcionam. Fiquei 10 anos sem tirar férias por medo de ser substituída. Trabalhava como forma de provar que eu valia. Só entendi o padrão quando parei de tentar consertá-lo e comecei a entender <strong>o que ele ainda estava tentando proteger.</strong></p>
-      <p>A segurança não veio antes. Ela veio depois.</p>
+      <div class="sobre-inner">
+        <img src="foto.png" alt="Analu Figueira" class="sobre-foto" />
+        <div class="sobre-texto">
+          <h2>Analu Figueira</h2>
+          <p class="sub-sobre">Coach e consultora comportamental</p>
+          <p>Trabalho com mulheres profissionais, CLT e CNPJ, que fazem demais e ainda sentem que não são suficientes.</p>
+          <p>Não sou a guru que chegou lá. Sou a mulher que está no caminho, com ferramentas que funcionam. Fiquei 10 anos sem tirar férias por medo de ser substituída. Trabalhava como forma de provar que eu valia. Só entendi o padrão quando parei de tentar consertá-lo e comecei a entender <strong>o que ele ainda estava tentando proteger.</strong></p>
+          <p>A segurança não veio antes. Ela veio depois.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -721,7 +753,7 @@
           <li>Documento de preparação prévia</li>
         </ul>
         <a href="#" class="btn" style="width:100%;text-align:center;display:block;">
-          Quero minha sessão — R$597
+          Quero minha sessão por R$597
         </a>
         <p class="vagas-aviso">⚡ Vagas limitadas por mês</p>
       </div>
@@ -736,7 +768,7 @@
 
         <details>
           <summary>Preciso ter comprado algum produto antes?</summary>
-          <p>Não. A sessão é completa e independente. Você não precisa ter nenhum app ou material anterior — o diagnóstico e o mapeamento do perfil fazem parte da própria sessão.</p>
+          <p>Não. A sessão é completa e independente. Você não precisa ter nenhum app ou material anterior. O diagnóstico e o mapeamento do perfil fazem parte da própria sessão.</p>
         </details>
 
         <details>
@@ -746,7 +778,7 @@
 
         <details>
           <summary>A sessão é gravada?</summary>
-          <p>Você pode solicitar a gravação antes da sessão. Mas o material mais importante — o Raio-X de Identidade e o plano de 30 dias — chega por escrito em até 48h depois.</p>
+          <p>Você pode solicitar a gravação antes da sessão. Mas o material mais importante, o Raio-X de Identidade e o plano de 30 dias, chega por escrito em até 48h depois.</p>
         </details>
 
         <details>
@@ -756,7 +788,7 @@
 
         <details>
           <summary>Funciona pra quem está em emprego CLT ou pra quem tem negócio próprio?</summary>
-          <p>Para as duas situações. O trabalho é sobre o seu padrão comportamental — e esse padrão aparece independente do formato de trabalho. Já atendi mulheres nas duas situações, e os movimentos de saída são específicos para a realidade de cada uma.</p>
+          <p>Para as duas situações. O trabalho é sobre o seu padrão comportamental e esse padrão aparece independente do formato de trabalho. Já atendi mulheres nas duas situações, e os movimentos de saída são específicos para a realidade de cada uma.</p>
         </details>
 
       </div>
