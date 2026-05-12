@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sessão Eu no Meu Lugar — Analu Figueira</title>
-  <meta name="description" content="Uma sessão individual para identificar seu padrão de autossabotagem profissional e sair do automático de vez." />
+  <meta name="description" content="Uma sessão para identificar o comportamento profissional que está travando promoção, vendas e reconhecimento." />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap');
 
@@ -14,12 +14,15 @@
       --bg: #0c0b0f;
       --bg2: #13111a;
       --bg3: #1a1724;
+      --bg4: #100e18;
       --accent: #c4a0c8;
       --accent2: #9b6ea8;
       --warm: #e8b89a;
+      --gold: #c9a96e;
       --text: #f0eaf4;
       --muted: #9b96a8;
       --border: #2a2535;
+      --border2: #3a3050;
       --cta: #c4a0c8;
       --cta-hover: #d4b4d8;
     }
@@ -35,7 +38,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── LAYOUT ── */
     .container {
       max-width: 640px;
       margin: 0 auto;
@@ -45,32 +47,70 @@
     section { padding: 64px 0; }
     section + section { border-top: 1px solid var(--border); }
 
+    /* ── ORNAMENT LINE ── */
+    .ornament {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .ornament-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent2));
+    }
+    .ornament-line.right {
+      background: linear-gradient(90deg, var(--accent2), transparent);
+    }
+    .ornament-diamond {
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+
     /* ── HERO ── */
     .hero {
-      background: linear-gradient(180deg, #1a1330 0%, var(--bg) 100%);
-      padding: 72px 0 64px;
+      background: linear-gradient(180deg, #1c1230 0%, #130f1e 60%, var(--bg) 100%);
+      padding: 80px 0 72px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(155,110,168,0.12) 0%, transparent 70%);
+      pointer-events: none;
     }
 
     .tag {
       display: inline-block;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 600;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
       text-transform: uppercase;
-      color: var(--accent);
-      border: 1px solid var(--accent2);
+      color: var(--gold);
+      border: 1px solid rgba(201,169,110,0.4);
       border-radius: 100px;
-      padding: 5px 16px;
-      margin-bottom: 28px;
+      padding: 5px 18px;
+      margin-bottom: 32px;
     }
 
     .hero h1 {
       font-family: 'DM Serif Display', serif;
-      font-size: clamp(36px, 8vw, 56px);
-      line-height: 1.15;
+      font-size: clamp(40px, 9vw, 62px);
+      line-height: 1.1;
       color: #fff;
       margin-bottom: 20px;
+      letter-spacing: -0.5px;
     }
 
     .hero h1 em {
@@ -79,46 +119,51 @@
     }
 
     .hero .sub {
-      font-size: 18px;
+      font-size: 17px;
       color: var(--muted);
-      max-width: 480px;
+      max-width: 500px;
+      margin: 0 auto 16px;
+      line-height: 1.7;
+    }
+
+    .hero .sub strong {
+      color: var(--text);
+    }
+
+    .hero .sub-small {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 400px;
       margin: 0 auto 40px;
-      line-height: 1.6;
+      font-style: italic;
     }
 
     .btn {
       display: inline-block;
-      background: var(--cta);
-      color: #0c0b0f;
+      background: linear-gradient(135deg, var(--accent2), #7a4fa0);
+      color: #fff;
       font-size: 15px;
       font-weight: 600;
-      padding: 16px 36px;
+      padding: 17px 40px;
       border-radius: 100px;
       text-decoration: none;
       letter-spacing: 0.3px;
-      transition: background 0.2s, transform 0.15s;
+      transition: opacity 0.2s, transform 0.15s;
+      box-shadow: 0 8px 32px rgba(155,110,168,0.3);
     }
 
     .btn:hover {
-      background: var(--cta-hover);
-      transform: translateY(-1px);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--cta);
-      border: 1.5px solid var(--cta);
-    }
-
-    .btn-outline:hover {
-      background: rgba(196,160,200,0.08);
-      transform: translateY(-1px);
+      opacity: 0.9;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(155,110,168,0.4);
     }
 
     .hero-note {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--muted);
-      margin-top: 14px;
+      margin-top: 16px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
     /* ── DOR ── */
@@ -136,19 +181,50 @@
       margin-bottom: 16px;
     }
 
-    .dor p strong {
-      color: var(--text);
+    .dor p strong { color: var(--text); }
+
+    .cena-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 24px 0;
     }
 
-    .dor .destaque {
-      background: var(--bg3);
-      border-left: 3px solid var(--accent2);
+    .cena-list li {
+      padding: 14px 18px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--accent2);
       border-radius: 0 8px 8px 0;
-      padding: 20px 24px;
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .destaque {
+      background: linear-gradient(135deg, #1e1530, #170f28);
+      border: 1px solid var(--border2);
+      border-radius: 12px;
+      padding: 24px 28px;
       margin: 28px 0;
       font-size: 17px;
       color: var(--text);
       font-style: italic;
+      line-height: 1.6;
+      position: relative;
+    }
+
+    .destaque::before {
+      content: '"';
+      font-family: 'DM Serif Display', serif;
+      font-size: 64px;
+      color: var(--accent2);
+      opacity: 0.4;
+      position: absolute;
+      top: -8px;
+      left: 20px;
+      line-height: 1;
     }
 
     /* ── PARA QUEM ── */
@@ -163,23 +239,68 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
     }
 
     .check-list li {
       display: flex;
       align-items: flex-start;
       gap: 14px;
-      font-size: 16px;
+      font-size: 15px;
       color: var(--text);
+      line-height: 1.5;
     }
 
     .check-list li::before {
-      content: '✦';
+      content: '◆';
       color: var(--accent);
       flex-shrink: 0;
-      margin-top: 2px;
-      font-size: 13px;
+      margin-top: 3px;
+      font-size: 9px;
+    }
+
+    /* ── RESULTADOS ── */
+    .resultados {
+      background: var(--bg4);
+    }
+
+    .resultados h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(24px, 5vw, 34px);
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .resultados .intro {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 32px;
+    }
+
+    .resultado-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .resultado-item {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 18px;
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.4;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .resultado-item::before {
+      content: '→';
+      color: var(--accent);
+      flex-shrink: 0;
+      font-weight: 600;
     }
 
     /* ── O QUE É ── */
@@ -192,14 +313,14 @@
 
     .oque .intro {
       color: var(--muted);
-      font-size: 16px;
+      font-size: 15px;
       margin-bottom: 32px;
     }
 
     .steps {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 16px;
     }
 
     .step {
@@ -210,34 +331,39 @@
       display: flex;
       gap: 18px;
       align-items: flex-start;
+      transition: border-color 0.2s;
     }
 
+    .step:hover { border-color: var(--border2); }
+
     .step-num {
-      width: 36px;
-      height: 36px;
-      background: linear-gradient(135deg, var(--accent2), #7a4fa0);
+      width: 34px;
+      height: 34px;
+      background: linear-gradient(135deg, var(--accent2), #6a3f90);
       border-radius: 50%;
       flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
       color: #fff;
     }
 
     .step-body strong {
       display: block;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 600;
-      color: var(--text);
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
       margin-bottom: 4px;
     }
 
     .step-body span {
       font-size: 14px;
       color: var(--muted);
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     /* ── ENTREGA ── */
@@ -250,26 +376,30 @@
 
     .entrega .intro {
       color: var(--muted);
-      font-size: 16px;
+      font-size: 15px;
       margin-bottom: 32px;
     }
 
     .cards {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
     }
 
     .card {
       background: var(--bg2);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 20px 22px;
+      padding: 22px 24px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
     }
 
     .card-icon {
-      font-size: 22px;
-      margin-bottom: 8px;
+      font-size: 20px;
+      flex-shrink: 0;
+      margin-top: 2px;
     }
 
     .card strong {
@@ -283,6 +413,7 @@
     .card span {
       font-size: 14px;
       color: var(--muted);
+      line-height: 1.55;
     }
 
     /* ── FORMATO ── */
@@ -296,7 +427,7 @@
     .formato-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      gap: 10px;
       margin-bottom: 28px;
     }
 
@@ -304,21 +435,21 @@
       background: var(--bg2);
       border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 18px;
+      padding: 20px 16px;
       text-align: center;
     }
 
-    .formato-item .fi-label {
-      font-size: 12px;
+    .fi-label {
+      font-size: 10px;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--accent);
+      letter-spacing: 1.5px;
+      color: var(--gold);
       font-weight: 600;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
-    .formato-item .fi-val {
-      font-size: 15px;
+    .fi-val {
+      font-size: 16px;
       color: var(--text);
       font-weight: 500;
     }
@@ -332,36 +463,32 @@
       display: flex;
       gap: 32px;
       align-items: flex-start;
+      margin-bottom: 28px;
     }
 
     .sobre-foto {
-      width: 120px;
-      height: 120px;
+      width: 110px;
+      height: 110px;
       border-radius: 50%;
       object-fit: cover;
       flex-shrink: 0;
       border: 2px solid var(--accent2);
+      box-shadow: 0 0 24px rgba(155,110,168,0.25);
     }
 
     .sobre-texto h2 {
       font-family: 'DM Serif Display', serif;
-      font-size: clamp(24px, 5vw, 34px);
+      font-size: clamp(22px, 4vw, 30px);
       color: #fff;
-      margin-bottom: 8px;
-    }
-
-    .sobre h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(24px, 5vw, 34px);
-      color: #fff;
-      margin-bottom: 8px;
+      margin-bottom: 4px;
     }
 
     .sobre .sub-sobre {
-      color: var(--accent);
-      font-size: 14px;
+      color: var(--gold);
+      font-size: 13px;
       font-weight: 500;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
     }
 
     .sobre p {
@@ -370,13 +497,22 @@
       margin-bottom: 14px;
     }
 
-    .sobre p strong {
-      color: var(--text);
+    .sobre p strong { color: var(--text); }
+
+    .credenciais {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
     }
 
-    @media (max-width: 500px) {
-      .sobre-inner { flex-direction: column; align-items: center; text-align: center; }
-      .sobre-foto { width: 100px; height: 100px; }
+    .cred-item {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-size: 12px;
+      color: var(--muted);
     }
 
     /* ── PREÇO ── */
@@ -392,41 +528,61 @@
     }
 
     .preco-box {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 40px 32px;
-      max-width: 420px;
+      background: linear-gradient(160deg, #1e1530 0%, #130f1e 100%);
+      border: 1px solid var(--border2);
+      border-radius: 20px;
+      padding: 44px 36px;
+      max-width: 440px;
       margin: 0 auto 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .preco-box::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(155,110,168,0.1) 0%, transparent 70%);
+      pointer-events: none;
     }
 
     .preco-label {
-      font-size: 13px;
+      font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--muted);
-      margin-bottom: 8px;
+      letter-spacing: 2px;
+      color: var(--gold);
+      margin-bottom: 10px;
     }
 
     .preco-valor {
       font-family: 'DM Serif Display', serif;
-      font-size: 52px;
+      font-size: 56px;
       color: #fff;
       line-height: 1;
       margin-bottom: 4px;
     }
 
-    .preco-valor span {
+    .preco-valor sup {
       font-family: 'Inter', sans-serif;
-      font-size: 18px;
+      font-size: 22px;
       color: var(--muted);
       font-weight: 400;
+      vertical-align: super;
     }
 
     .preco-pix {
       font-size: 13px;
       color: var(--muted);
       margin-bottom: 28px;
+    }
+
+    .preco-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 20px 0;
     }
 
     .preco-includes {
@@ -441,7 +597,7 @@
     .preco-includes li {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       font-size: 14px;
       color: var(--text);
     }
@@ -450,25 +606,23 @@
       content: '✓';
       width: 20px;
       height: 20px;
-      background: rgba(196,160,200,0.15);
+      background: rgba(196,160,200,0.12);
+      border: 1px solid var(--accent2);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      font-size: 11px;
+      font-size: 10px;
       color: var(--accent);
       font-weight: 700;
     }
 
     .vagas-aviso {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--warm);
-      margin-top: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
+      margin-top: 12px;
+      letter-spacing: 0.5px;
     }
 
     /* ── FAQ ── */
@@ -477,12 +631,6 @@
       font-size: clamp(24px, 5vw, 34px);
       color: #fff;
       margin-bottom: 32px;
-    }
-
-    .faq-list {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
     }
 
     details {
@@ -517,9 +665,7 @@
       transition: transform 0.2s;
     }
 
-    details[open] summary::after {
-      transform: rotate(45deg);
-    }
+    details[open] summary::after { transform: rotate(45deg); }
 
     details p {
       padding: 0 20px 18px;
@@ -531,7 +677,7 @@
     /* ── CTA FINAL ── */
     .cta-final {
       text-align: center;
-      background: linear-gradient(180deg, var(--bg) 0%, #1a1330 100%);
+      background: linear-gradient(180deg, var(--bg) 0%, #1c1230 100%);
       padding: 80px 0;
     }
 
@@ -569,10 +715,14 @@
     }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 440px) {
+    @media (max-width: 480px) {
       .formato-grid { grid-template-columns: 1fr; }
-      .preco-box { padding: 32px 24px; }
-      .preco-valor { font-size: 44px; }
+      .resultado-grid { grid-template-columns: 1fr; }
+      .preco-box { padding: 32px 22px; }
+      .preco-valor { font-size: 46px; }
+      .sobre-inner { flex-direction: column; align-items: center; text-align: center; }
+      .sobre-foto { width: 96px; height: 96px; }
+      .credenciais { justify-content: center; }
     }
   </style>
 </head>
@@ -583,7 +733,11 @@
     <div class="container">
       <span class="tag">Sessão Individual</span>
       <h1>Eu no <em>Meu Lugar</em></h1>
-      <p class="sub">Uma sessão para identificar o padrão que está te travando: de onde ele veio, o que ainda tenta proteger e o que está custando na sua carreira.</p>
+      <p class="sub">
+        Sabe quando você fica depois do horário, assume uma coisa que nem era sua, responde mensagem quando já estava exausta, aceita mais uma demanda...
+        <strong>e mesmo assim sente que na hora de ser escolhida seu nome não vem?</strong>
+      </p>
+      <p class="sub-small">É aí que entra o meu trabalho.</p>
       <a href="#checkout" class="btn">Quero minha sessão</a>
       <p class="hero-note">1h30 · Online · Exclusivamente individual</p>
     </div>
@@ -592,17 +746,23 @@
   <!-- DOR -->
   <section class="dor">
     <div class="container">
-      <h2>Você faz. Você entrega. E ainda assim algo trava.</h2>
+      <h2>Você faz. Você entrega. E ainda assim não é escolhida.</h2>
 
-      <p>Em algum momento da semana você reage de um jeito que não queria. Evita uma conversa que precisava ter. Aceita mais do que devia. Ou fica em loop tentando decidir algo que, na teoria, deveria ser simples.</p>
+      <p>Não porque falta capacidade. Mas porque o jeito que você aprendeu a trabalhar tenta te proteger e, ao mesmo tempo, está travando seu avanço.</p>
 
-      <p>Você já leu sobre isso. Já tentou mudar. Mas <strong>o padrão continua aparecendo.</strong></p>
+      <ul class="cena-list">
+        <li>Fica além do horário sem ninguém pedir, porque pensa: "se eu sair agora vão achar que não estou comprometida."</li>
+        <li>Assume tarefa que era de outra pessoa, porque "é mais rápido eu fazer do que explicar."</li>
+        <li>Manda proposta e já coloca desconto antes da cliente pedir.</li>
+        <li>Explica o preço antes de alguém questionar, como se estivesse pedindo desculpa.</li>
+        <li>Vê alguém sendo promovido e pensa: "mas eu faço muito mais do que ela."</li>
+      </ul>
 
       <div class="destaque">
-        "Não é falta de vontade. É que o jeito que você aprendeu a trabalhar ainda está tentando proteger algo. Ele não sabe que o perigo já passou."
+        Muitas vezes o problema não é falta de capacidade. É o comportamento que ela repete para tentar ser vista.
       </div>
 
-      <p>A sessão <strong>Eu no Meu Lugar</strong> existe para identificar esse padrão com precisão e traçar o caminho de saída que é real pra você, não genérico.</p>
+      <p>A sessão <strong>Eu no Meu Lugar</strong> existe para nomear esse padrão com precisão e traçar o caminho de saída que é real pra você, não genérico.</p>
     </div>
   </section>
 
@@ -611,13 +771,36 @@
     <div class="container">
       <h2>Essa sessão é pra você se…</h2>
       <ul class="check-list">
-        <li>Você sente que trabalha muito mas não avança do jeito que quer</li>
-        <li>Você assume tudo sozinha e não consegue delegar sem culpa</li>
-        <li>Você precisa de validação pra tomar decisão, mesmo as que você domina</li>
-        <li>Você evita conflito e depois se ressente da situação</li>
-        <li>Você está sempre na iminência de fazer a mudança, mas algo sempre freia</li>
+        <li>Você entrega mais do que o combinado e ainda assim não vê isso virar promoção, dinheiro ou escolha</li>
+        <li>Você assume tudo sozinha e não consegue delegar sem sentir que vai dar errado</li>
+        <li>Você trava na hora de cobrar, de discordar ou de dizer que não consegue</li>
+        <li>Você evita conflito, engole o incômodo e ainda responde "imagina, tudo bem"</li>
+        <li>Você sente que virou a pessoa que resolve, mas ninguém vê como alguém pronta para crescer</li>
         <li>Você quer entender o seu jeito de funcionar, não uma fórmula genérica</li>
       </ul>
+    </div>
+  </section>
+
+  <!-- RESULTADOS -->
+  <section class="resultados">
+    <div class="container">
+      <div class="ornament">
+        <div class="ornament-line"></div>
+        <div class="ornament-diamond"></div>
+        <div class="ornament-line right"></div>
+      </div>
+      <h2>O que muda depois da sessão</h2>
+      <p class="intro">Não "ficou mais confiante". Resultados concretos.</p>
+      <div class="resultado-grid">
+        <div class="resultado-item">Pediu aumento e recebeu</div>
+        <div class="resultado-item">Parou de assumir tudo sozinha</div>
+        <div class="resultado-item">Começou a vender com clareza</div>
+        <div class="resultado-item">Se posicionou em reunião</div>
+        <div class="resultado-item">Deixou de aceitar cliente que drena</div>
+        <div class="resultado-item">Colocou preço sem pedir desculpa</div>
+        <div class="resultado-item">Entendeu por que não era promovida</div>
+        <div class="resultado-item">Saiu do automático</div>
+      </div>
     </div>
   </section>
 
@@ -625,7 +808,7 @@
   <section class="oque">
     <div class="container">
       <h2>O que acontece na sessão</h2>
-      <p class="intro">A sessão segue 5 movimentos em sequência. Não é conversa de desabafo: é leitura precisa do seu padrão.</p>
+      <p class="intro">Cinco movimentos em sequência. Não é conversa de desabafo: é leitura precisa do seu padrão.</p>
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
@@ -674,18 +857,24 @@
       <div class="cards">
         <div class="card">
           <div class="card-icon">🎯</div>
-          <strong>Raio-X de Identidade</strong>
-          <span>Documento personalizado com seu perfil predominante, sua força real, a sombra ativa e o seu próximo nível, por escrito, pra você revisitar sempre que precisar.</span>
+          <div>
+            <strong>Raio-X de Identidade</strong>
+            <span>Documento personalizado com seu perfil predominante, sua força real, a sombra ativa e o seu próximo nível, por escrito, pra você revisitar sempre que precisar.</span>
+          </div>
         </div>
         <div class="card">
           <div class="card-icon">📋</div>
-          <strong>Plano de 30 dias</strong>
-          <span>Ações concretas pensadas para o seu padrão específico — não uma lista genérica, mas movimentos que fazem sentido para o jeito que você funciona.</span>
+          <div>
+            <strong>Plano de 30 dias</strong>
+            <span>Ações concretas pensadas para o seu padrão específico. Não uma lista genérica: movimentos que fazem sentido para o jeito que você funciona.</span>
+          </div>
         </div>
         <div class="card">
           <div class="card-icon">🔍</div>
-          <strong>Diagnóstico do seu perfil</strong>
-          <span>Mapeamento completo do seu comportamento com base na ferramenta CIS/DISC aplicada à sua realidade profissional.</span>
+          <div>
+            <strong>Diagnóstico do seu perfil</strong>
+            <span>Mapeamento completo do seu comportamento com base na ferramenta CIS/DISC aplicada à sua realidade profissional.</span>
+          </div>
         </div>
       </div>
     </div>
@@ -728,11 +917,18 @@
         <img src="foto.png" alt="Analu Figueira" class="sobre-foto" />
         <div class="sobre-texto">
           <h2>Analu Figueira</h2>
-          <p class="sub-sobre">Coach e consultora comportamental</p>
-          <p>Trabalho com mulheres profissionais, CLT e CNPJ, que fazem demais e ainda sentem que não são suficientes.</p>
-          <p>Não sou a guru que chegou lá. Sou a mulher que está no caminho, com ferramentas que funcionam. Fiquei 10 anos sem tirar férias por medo de ser substituída. Trabalhava como forma de provar que eu valia. Só entendi o padrão quando parei de tentar consertá-lo e comecei a entender <strong>o que ele ainda estava tentando proteger.</strong></p>
-          <p>A segurança não veio antes. Ela veio depois.</p>
+          <p class="sub-sobre">Comportamento Profissional Feminino</p>
+          <p>Depois de quase duas décadas vendo mulheres competentes dentro de empresas, lideranças e negócios, eu percebi uma coisa: muitas não estavam travadas por falta de capacidade. Estavam travadas pelo jeito que aprenderam a funcionar para serem aceitas, seguras, úteis ou impecáveis.</p>
+          <p>Eu vi esse padrão se repetir tantas vezes que criei uma leitura para ele. <strong>É isso que eu faço na sessão.</strong></p>
         </div>
+      </div>
+      <div class="credenciais">
+        <span class="cred-item">18 anos em comportamento profissional</span>
+        <span class="cred-item">Formação em RH desde 2008</span>
+        <span class="cred-item">MBA em Gestão de Pessoas</span>
+        <span class="cred-item">Coordenadora de RH desde 2011</span>
+        <span class="cred-item">Coach pela Febracis</span>
+        <span class="cred-item">Analista Comportamental DISC</span>
       </div>
     </div>
   </section>
@@ -742,9 +938,10 @@
     <div class="container">
       <h2>Invista na sessão</h2>
       <div class="preco-box">
-        <p class="preco-label">Sessão individual</p>
-        <p class="preco-valor"><span>R$</span> 597</p>
+        <p class="preco-label">Sessão Individual · Eu no Meu Lugar</p>
+        <p class="preco-valor"><sup>R$</sup>597</p>
         <p class="preco-pix">Pix ou cartão de crédito</p>
+        <div class="preco-divider"></div>
         <ul class="preco-includes">
           <li>Sessão individual de 1h30 ao vivo</li>
           <li>Diagnóstico completo do seu perfil</li>
@@ -764,41 +961,44 @@
   <section class="faq">
     <div class="container">
       <h2>Perguntas frequentes</h2>
-      <div class="faq-list">
 
-        <details>
-          <summary>Preciso ter comprado algum produto antes?</summary>
-          <p>Não. A sessão é completa e independente. Você não precisa ter nenhum app ou material anterior. O diagnóstico e o mapeamento do perfil fazem parte da própria sessão.</p>
-        </details>
+      <details>
+        <summary>Preciso ter comprado algum produto antes?</summary>
+        <p>Não. A sessão é completa e independente. Você não precisa ter nenhum app ou material anterior. O diagnóstico e o mapeamento do perfil fazem parte da própria sessão.</p>
+      </details>
 
-        <details>
-          <summary>Como funciona depois que eu compro?</summary>
-          <p>Você recebe um documento de preparação para preencher com sua história, seu contexto profissional atual e o desafio que mais está te travando. Depois agendamos a sessão para um horário que funcione pra você.</p>
-        </details>
+      <details>
+        <summary>Como funciona depois que eu compro?</summary>
+        <p>Você recebe um documento de preparação para preencher com sua história, seu contexto profissional atual e o desafio que mais está te travando. Depois agendamos a sessão para um horário que funcione pra você.</p>
+      </details>
 
-        <details>
-          <summary>A sessão é gravada?</summary>
-          <p>Você pode solicitar a gravação antes da sessão. Mas o material mais importante, o Raio-X de Identidade e o plano de 30 dias, chega por escrito em até 48h depois.</p>
-        </details>
+      <details>
+        <summary>A sessão é gravada?</summary>
+        <p>Você pode solicitar a gravação antes da sessão. Mas o material mais importante, o Raio-X de Identidade e o plano de 30 dias, chega por escrito em até 48h depois.</p>
+      </details>
 
-        <details>
-          <summary>Qual é o prazo para agendar após a compra?</summary>
-          <p>As sessões são agendadas conforme disponibilidade. Em geral, o prazo é de até 15 dias úteis. Você receberá as instruções de agendamento logo após a confirmação do pagamento.</p>
-        </details>
+      <details>
+        <summary>Qual é o prazo para agendar após a compra?</summary>
+        <p>As sessões são agendadas conforme disponibilidade. Em geral, o prazo é de até 15 dias úteis. Você receberá as instruções de agendamento logo após a confirmação do pagamento.</p>
+      </details>
 
-        <details>
-          <summary>Funciona pra quem está em emprego CLT ou pra quem tem negócio próprio?</summary>
-          <p>Para as duas situações. O trabalho é sobre o seu padrão comportamental e esse padrão aparece independente do formato de trabalho. Já atendi mulheres nas duas situações, e os movimentos de saída são específicos para a realidade de cada uma.</p>
-        </details>
+      <details>
+        <summary>Funciona pra quem está em emprego CLT ou pra quem tem negócio próprio?</summary>
+        <p>Para as duas situações. O trabalho é sobre o seu padrão comportamental e esse padrão aparece independente do formato de trabalho. Já atendi mulheres nas duas situações, e os movimentos de saída são específicos para a realidade de cada uma.</p>
+      </details>
 
-      </div>
     </div>
   </section>
 
   <!-- CTA FINAL -->
   <section class="cta-final">
     <div class="container">
-      <h2>Você não precisa<br>continuar no <em>automático.</em></h2>
+      <div class="ornament" style="margin-bottom:32px;">
+        <div class="ornament-line"></div>
+        <div class="ornament-diamond"></div>
+        <div class="ornament-line right"></div>
+      </div>
+      <h2>Você não precisa<br>trabalhar mais.<br><em>Precisa trabalhar certo.</em></h2>
       <p>Uma sessão. Clareza real. Um caminho que é seu.</p>
       <a href="#checkout" class="btn">Quero minha sessão</a>
     </div>
